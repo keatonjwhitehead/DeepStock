@@ -1,0 +1,24 @@
+name: stock-model
+
+docker_env:
+  image: mlflow-docker-example
+
+entry_points:
+  main:
+    parameters:
+      ticker:
+        type: string
+        default: ''
+      num_epochs:
+        type: int
+        default: 10
+      batch_size:
+        type: int
+        default: 64
+      create:
+        type: bool
+        default: false
+      deploy:
+        type: bool
+        default: false
+    command: "python3 train.py --ticker {ticker} --num_epochs {num-epochs} --batch-size {batch_size}"
